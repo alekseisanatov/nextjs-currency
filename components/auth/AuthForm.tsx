@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Spinner from '../common/Spinner'
 import ErrorMessage from '../common/ErrorMessage'
+import Input from '../common/Input'
+import FormButton from '../common/FormButton'
+import Spinner from '../common/Spinner'
 
 export default function AuthForm({ type }: { type: 'login' | 'register' }) {
   const [email, setEmail] = useState('')
@@ -45,32 +47,16 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10">
       <div className="mb-4">
         <label className="block mb-2">Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
+        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='' />
       </div>
       <div className="mb-4">
         <label className="block mb-2">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
+        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='' />
       </div>
       {error && <ErrorMessage message={error} />}
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-400"
-        disabled={loading}
-      >
+      <FormButton loading={loading}>
         {loading ? <Spinner /> : type === 'login' ? 'Login' : 'Register'}
-      </button>
+      </FormButton>
     </form>
   )
 }

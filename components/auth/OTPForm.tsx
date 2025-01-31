@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Spinner from '../common/Spinner'
+import Input from '../common/Input'
+import FormButton from '../common/FormButton'
 
 export default function OTPForm() {
   const [otp, setOtp] = useState('')
@@ -24,21 +26,11 @@ export default function OTPForm() {
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10">
       <div className="mb-4">
         <label className="block mb-2">Enter OTP</label>
-        <input
-          type="text"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          className="w-full p-2 border rounded"
-          required
-        />
+        <Input type="text" value={otp} onChange={(e) => setOtp(e.target.value)} placeholder='' />
       </div>
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded disabled:bg-gray-400"
-        disabled={loading}
-      >
+      <FormButton loading={loading}>
         {loading ? <Spinner /> : 'Verify OTP'}
-      </button>
+      </FormButton>
     </form>
   )
 }

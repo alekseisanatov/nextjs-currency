@@ -6,6 +6,7 @@ import Table from '../common/Table'
 import Spinner from '../common/Spinner'
 import ErrorMessage from '../common/ErrorMessage'
 import ColumnController from './ColumnController'
+import Input from '../common/Input'
 
 export default function CurrencyTable() {
   const [currencies, setCurrencies] = useState<any[]>([])
@@ -46,13 +47,7 @@ export default function CurrencyTable() {
           onIncrement={() => setColumns(c => c + 1)}
           onDecrement={() => setColumns(c => Math.max(1, c - 1))}
         />
-        <input
-          type="text"
-          placeholder="Search currency..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="border p-2 rounded flex-grow max-w-xs"
-        />
+        <Input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search currency..." />
       </div>
 
       {error && <ErrorMessage message={error} />}
