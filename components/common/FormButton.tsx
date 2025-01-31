@@ -5,7 +5,7 @@ interface FormButtonProps {
   children: ReactNode;
 }
 
-const FormButton = ({ loading, children }: FormButtonProps) => {
+export default function FormButton ({ loading, children }: FormButtonProps) {
   return (
     <button
       type="submit"
@@ -16,5 +16,3 @@ const FormButton = ({ loading, children }: FormButtonProps) => {
     </button>
   )
 }
-
-export default FormButton;

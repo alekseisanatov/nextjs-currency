@@ -1,4 +1,4 @@
-const DashboardColumn = () => {
+export default function DashboardColumn () {
   return (
     <div className="flex justify-between">
       <span>Name</span>
@@ -7,5 +7,3 @@ const DashboardColumn = () => {
     </div>
   )
 }
-
-export default DashboardColumn;

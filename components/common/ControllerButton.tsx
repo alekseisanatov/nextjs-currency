@@ -3,7 +3,7 @@ interface ControllerButtonProps {
   adjustColumns: () => void;
 }
 
-const ControllerButton = ({ symbol, adjustColumns }: ControllerButtonProps) => {
+export default function ControllerButton({ symbol, adjustColumns }: ControllerButtonProps) {
   return (
     <button
         onClick={adjustColumns}
@@ -14,5 +14,3 @@ const ControllerButton = ({ symbol, adjustColumns }: ControllerButtonProps) => {
       </button>
   )
 }
-
-export default ControllerButton;

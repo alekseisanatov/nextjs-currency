@@ -5,7 +5,8 @@ interface InputProps {
   placeholder: string,
 }
 
-const Input = ({ type, value, onChange, placeholder }: InputProps) => (
+export default function Input({ type, value, onChange, placeholder }: InputProps) {
+ return (
     <input
       type={type}
       value={value}
@@ -14,6 +15,5 @@ const Input = ({ type, value, onChange, placeholder }: InputProps) => (
       className="w-full p-2 border rounded"
       required
     />
-)
-
-export default Input;
+  )
+}
