@@ -1,5 +1,6 @@
 import { Currency } from '@/types/types'
 import CurrencyItem from './CurrencyItem'
+import DashboardColumn from './DashboardColumn'
 
 interface TableProps {
   data: Currency[]
@@ -19,11 +20,7 @@ export default function Table({ data, columns, onDelete }: TableProps) {
         <tr>
           {Array(columns).fill(null).map((_, index) => (
             <th key={index} className="border-b-2 p-4 text-left bg-gray-50">
-              <div className="flex justify-between">
-                <span>Name</span>
-                <span>Balance</span>
-                <span className='w-11'></span>
-              </div>
+              <DashboardColumn />
             </th>
           ))}
         </tr>
